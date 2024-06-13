@@ -6,11 +6,13 @@ let gCanvas
 function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
-    renderMeme()
+    renderMeme('')
     const memeTextInput = document.getElementById('memeText')
     memeTextInput.addEventListener('input', function() {
         renderMeme(memeTextInput.value)
     })
+
+    renderGallery()
 }
 
 function renderMeme(memeText) {
@@ -23,7 +25,7 @@ function renderMeme(memeText) {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
 
         // var memeText = 'fbh dbjhfdkd dfb hj'
-        gCtx.fillStyle = '#000000'
+        gCtx.fillStyle = getColor()
         gCtx.font = '20px Ariel'
         gCtx.textAlign = 'center'
         gCtx.fillText (memeText,gCanvas.width/2, 40)
@@ -36,3 +38,10 @@ function renderMeme(memeText) {
     img.src = selectedImg.url
 }
 
+function onDownloadImg(elLink) {
+    const imgContent = gCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+}
+// function onClearCanvas() {
+//     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
+// }

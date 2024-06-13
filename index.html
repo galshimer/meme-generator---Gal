@@ -9,11 +9,18 @@
 </head>
 
 <body onload="onInit()">
-    <canvas width="450" height="450" style="outline: 1px solid green;"></canvas>
+    <!-- <button onclick="onClearCanvas()">Clear</button> -->
+    <canvas width="450" height="450" style="outline: 1px solid green"></canvas>
     <input type="text" id="memeText" placeholder="Enter text for meme">
+    <div class="gallery">
+    </div>
+
+    <input type="color" id="color" name="color" value="#ff0000" />
+    <a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download your photo</a>
 
     <script src="js/memeService.js"></script>
-    <script src="js/memeController.js"></script>
+    <script src="js/controllers/memeController.js"></script>
+    <script src="js/controllers/galleryController.js"></script>
     <script src="js/main.js"></script>
 </body>
 

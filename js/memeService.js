@@ -38,3 +38,14 @@ function getMeme() {
     return gMeme
 }
 
+function addSecondLine(meme, text) {
+    const secondLine = {
+        text: text,
+        size: 20,
+        color: 'black',
+        font: 'Arial',
+        position: { x: 50, y: 100 }
+    }
+    
+    meme.lines.push(secondLine)
+}

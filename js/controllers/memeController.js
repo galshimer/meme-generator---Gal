@@ -11,9 +11,7 @@ function onInit() {
     memeTextInput.addEventListener('input', function () {
         renderMeme(memeTextInput.value)
     })
-
     renderGallery()
-
 }
 
 function renderMeme(memeText) {
@@ -25,16 +23,16 @@ function renderMeme(memeText) {
         gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height)
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
 
-        // var memeText = 'fbh dbjhfdkd dfb hj'
         const line = gMeme.lines[gMeme.selectedLineIdx]
 
         gCtx.fillStyle = getColor()
-        gCtx.font = `${line.size}px Arial`
+        gCtx.font = `${line.size}px Impact`
         gCtx.textAlign = 'center'
         gCtx.fillText(memeText, gCanvas.width / 2, 40)
 
         gCtx.strokeStyle = getColor()
-        gCtx.lineWidth = 2
+        gCtx.lineWidth = 1
+        gCtx.strokeStyle = '#000000'
         gCtx.strokeText(memeText, gCanvas.width / 2, 40)
 
     }
@@ -62,6 +60,10 @@ function onChangeFontSize(dir) {
     gMeme.lines[gMeme.selectedLineIdx].size = fontSize
     renderMeme(document.getElementById('memeText').value)
 }
-// function onClearCanvas() {
-//     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
-// }
+
+function OnAddText(){
+    addSecondLine(gMeme, 'Second line of the meme')
+    console.log(gMeme)
+    renderMeme()
+
+}

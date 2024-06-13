@@ -1,3 +1,10 @@
 *{
     box-sizing: border-box;
 }
+body {
+    text-align: center;
+}
+
+canvas {
+    border: 1px solid black;
+}

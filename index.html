@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/287346be32.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css" />
     <title>Meme Generator</title>
 </head>
@@ -14,6 +15,8 @@
     <input type="text" id="memeText" placeholder="Enter text for meme">
     <input class="btn" type="color" id="color" name="color" value="#ff0000" />
     <a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download your photo</a>
+    <button onclick="onChangeFontSize(1)"><i class="fa-solid fa-font"></i>+</button>
+    <button onclick="onChangeFontSize(-1)"><i class="fa-solid fa-font" ></i>-</button>
     
     <div class="gallery-container">
     </div>

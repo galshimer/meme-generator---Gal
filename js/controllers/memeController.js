@@ -26,8 +26,10 @@ function renderMeme(memeText) {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
 
         // var memeText = 'fbh dbjhfdkd dfb hj'
+        const line = gMeme.lines[gMeme.selectedLineIdx]
+
         gCtx.fillStyle = getColor()
-        gCtx.font = '20px Ariel'
+        gCtx.font = `${line.size}px Arial`
         gCtx.textAlign = 'center'
         gCtx.fillText(memeText, gCanvas.width / 2, 40)
 
@@ -52,6 +54,14 @@ function onImgSelect(elImg) {
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
 }
 
+function onChangeFontSize(dir) {
+    var fontSize = gMeme.lines[gMeme.selectedLineIdx].size
+    if (dir > 0)  fontSize++
+    else fontSize--
+
+    gMeme.lines[gMeme.selectedLineIdx].size = fontSize
+    renderMeme(document.getElementById('memeText').value)
+}
 // function onClearCanvas() {
 //     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
 // }

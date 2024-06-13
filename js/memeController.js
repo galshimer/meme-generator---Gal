@@ -7,9 +7,13 @@ function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
     renderMeme()
+    const memeTextInput = document.getElementById('memeText')
+    memeTextInput.addEventListener('input', function() {
+        renderMeme(memeTextInput.value)
+    })
 }
 
-function renderMeme() {
+function renderMeme(memeText) {
     const selectedImg = gImgs.find(img => img.id === gMeme.selectedImgId)
     const img = new Image()
     img.onload = function () {
@@ -18,7 +22,7 @@ function renderMeme() {
         gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height)
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
 
-        var memeText = 'dskjj jsdv skvbkjv'
+        // var memeText = 'fbh dbjhfdkd dfb hj'
         gCtx.fillStyle = '#000000'
         gCtx.font = '20px Ariel'
         gCtx.textAlign = 'center'

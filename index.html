@@ -12,7 +12,7 @@
 <body onload="onInit()">
     <!-- <button onclick="onClearCanvas()">Clear</button> -->
     <canvas width="450" height="450" style="outline: 1px solid green"></canvas>
-    <input type="text" id="memeText" placeholder="Enter text for meme">
+    <input class="input-text" type="text" oninput="onEditText(value)" id="memeText" placeholder="Enter text for meme">
     <input type="color" id="color" name="color" value="#ffffff" />
     <button class="btn" onclick="OnAddText()">Add buttom text</button>
     <a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download your photo</a>

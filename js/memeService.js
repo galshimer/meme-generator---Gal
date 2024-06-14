@@ -27,9 +27,14 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes est Falafel',
+            txt: 'I sometimes eat Falafel',
             size: 20,
             color: 'red'
+        },
+        {
+            txt: 'New line text',
+            size: 20,
+            color: 'blue'
         }
     ]
 }
@@ -38,14 +43,24 @@ function getMeme() {
     return gMeme
 }
 
-function addSecondLine(meme, text) {
-    const secondLine = {
+function addLine(meme, text) {
+    meme.lines.push = ({
         text: text,
-        size: 20,
-        color: 'black',
-        font: 'Arial',
-        position: { x: 50, y: 100 }
-    }
-    
-    meme.lines.push(secondLine)
+        size:40,
+        color: 'blue'
+    })
+}
+
+function changeFontSize(dir){
+    var fontSize = gMeme.lines[gMeme.selectedLineIdx].size
+    if (dir > 0)  fontSize++
+    else fontSize--
+
+    gMeme.lines[gMeme.selectedLineIdx].size = fontSize
+}
+
+function editText(elText){
+
+    console.log(elText)
+    gMeme.lines[gMeme.selectedLineIdx].txt = elText
 }

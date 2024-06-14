@@ -24,13 +24,15 @@ function renderMeme() {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
 
         gMeme.lines.forEach((line, idx) => {
-            drawText(line.txt,line.size, line.color, gCanvas.width / 2, 40 + idx * 50)
+            const isSelected = idx === gMeme.selectedLineIdx;
+            drawText(line.txt, line.size, line.color, gCanvas.width / 2, 40 + idx * 50, isSelected)
         })
     }
     img.src = selectedImg.url
 }
 
-function drawText(text, size, color, x, y) {
+function drawText(text, size, color, x, y, isSelected) {
+    gCtx.lineWidth = 2
     gCtx.strokeStyle = '#000000'
     gCtx.fillStyle = color
     gCtx.font = `${size}px Impact`
@@ -38,6 +40,14 @@ function drawText(text, size, color, x, y) {
     gCtx.textBaseline = 'middle'
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
+
+    if (isSelected) {
+        const textWidth = gCtx.measureText(text).width
+        const textHeight = size
+        gCtx.strokeStyle = '#ffffff'
+        gCtx.lineWidth = 2
+        gCtx.strokeRect(x - textWidth / 2 - 10, y - textHeight / 2, textWidth + 20, textHeight)
+    }
 }
 
 function getColor() {
@@ -60,14 +70,20 @@ function onChangeFontSize(dir) {
     renderMeme()
 }
 
-function OnAddText(){
+function OnAddText() {
     addLine(gMeme, 'Extra line of the meme')
     console.log(gMeme)
     renderMeme()
 }
 
-function onEditText(elText){
+function onEditText(elText) {
     console.log('elText: ', elText)
     editText(elText)
+    renderMeme()
+}
+
+function onSwitchLine() {
+    gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
+    console.log(`Switched to line ${gMeme.selectedLineIdx}`)
     renderMeme()
 }

@@ -1,0 +1,9 @@
+.main-nav button{
+display: grid;
+font-weight:400;
+}
+
+.main-nav button:hover{
+    box-shadow: inset 0px -6px 0px 0px var(--colorNavBarButton);
+    color: var(--colorNavBarButton);
+}

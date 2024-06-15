@@ -29,12 +29,9 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 20,
-            color: 'red'
-        },
-        {
-            txt: 'New line text',
-            size: 20,
-            color: 'blue'
+            color: 'red',
+            x: 222,
+            y:50
         }
     ]
 }
@@ -43,24 +40,32 @@ function getMeme() {
     return gMeme
 }
 
-function addLine(meme, text) {
-    meme.lines.push = ({
-        text: text,
-        size:40,
-        color: 'blue'
-    })
+function addLine() {     
+    var newLine = {         
+        txt: 'New line input',         
+        size: 30,         
+        color: 'blue',         
+        x: 222,
+        y: gMeme.lines.length === 0 ? 50 : gCanvas.height - 50,
+        font: 'Impact',
+        align: 'center'     
+    }     
+    gMeme.lines.push(newLine)     
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+    const elTextInput = document.querySelector('.input-text')
+    elTextInput.value = newLine.txt
+    renderMeme() 
 }
 
-function changeFontSize(dir){
+function changeFontSize(dir) {
     var fontSize = gMeme.lines[gMeme.selectedLineIdx].size
-    if (dir > 0)  fontSize++
+    if (dir > 0) fontSize++
     else fontSize--
 
     gMeme.lines[gMeme.selectedLineIdx].size = fontSize
 }
 
-function editText(elText){
-
+function editText(elText) {
     console.log(elText)
     gMeme.lines[gMeme.selectedLineIdx].txt = elText
 }

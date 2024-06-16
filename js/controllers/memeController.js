@@ -2,11 +2,17 @@
 
 let gCtx
 let gCanvas
+let gUploadedImg = null
+let gIsDragging = false
+let gStartPos = { x: 0, y: 0 }
 
 function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
     gCanvas.onclick = onCanvasClick
+    gCanvas.onmousedown = onMouseDown
+    gCanvas.onmousemove = onMouseMove
+    gCanvas.onmouseup = onMouseUp
     renderMeme()
     renderGallery()
 }
@@ -52,8 +58,10 @@ function drawText(text, size, color, x, y, isSelected, font = 'Impact', align = 
     }
 }
 
-function getColor() {
-    return document.getElementById('color').value
+function renderImg(elImg) {
+    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
+    gUploadedImg = elImg
+    drawText()
 }
 
 function onDownloadImg(elLink) {
@@ -146,3 +154,48 @@ function onDeleteLine() {
     gMeme.selectedLineIdx = (gMeme.selectedLineIdx - 1 + gMeme.lines.length) % gMeme.lines.length
     renderMeme()
 }
+
+function onChangeView(section) {
+    if (section === 'gallery') {
+        var elEditor = document.querySelector('.editor')
+        elEditor.classList.add('none')
+    }
+}
+
+
+function onMouseDown(ev) {
+    const { offsetX, offsetY } = ev
+    const lineIdx = gMeme.lines.findIndex(line => {
+        const textWidth = line.width
+        const textHeight = line.height
+        const startX = line.x - textWidth / 2 - 10
+        const endX = startX + textWidth + 20
+        const startY = line.y - textHeight / 2
+        const endY = startY + textHeight
+        return offsetX >= startX && offsetX <= endX && offsetY >= startY && offsetY <= endY
+    })
+
+    if (lineIdx !== -1) {
+        gIsDragging = true
+        gStartPos = { x: offsetX, y: offsetY }
+        gMeme.selectedLineIdx = lineIdx
+    }
+}
+
+function onMouseMove(ev) {
+    if (!gIsDragging) return
+    const { offsetX, offsetY } = ev
+    const dx = offsetX - gStartPos.x
+    const dy = offsetY - gStartPos.y
+    gStartPos = { x: offsetX, y: offsetY }
+
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    line.x += dx
+    line.y += dy
+    renderMeme()
+}
+
+function onMouseUp() {
+    gIsDragging = false
+}
+

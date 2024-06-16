@@ -46,7 +46,7 @@ function addLine() {
         size: 30,         
         color: getColor(),         
         x: 222,
-        y: gMeme.lines.length === 0 ? 50 : gCanvas.height - 50,
+        y: getRandomInt(40,400),
         font: 'Impact',
         align: 'center'     
     }     
@@ -69,3 +69,4 @@ function editText(elText) {
     console.log(elText)
     gMeme.lines[gMeme.selectedLineIdx].txt = elText
 }
+

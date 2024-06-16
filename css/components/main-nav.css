@@ -3,14 +3,17 @@
     transition: 1s;
 }
 
-.main-nav a{
-display: grid;
-font-weight:400;
-padding: 10px;
-color: var(--colorDefaultText);
+.btn-nav {
+    display: grid;
+    padding: 10px;
+    height: 55px;
+    align-items: center;
+    color: var(--colorDefaultText);
+    background-color: var(--colorOrange);
+    border: 0px;
 }
 
-.main-nav a:hover{
+.btn-nav:hover {
     box-shadow: inset 0px -5px 0px 0px var(--colorNavBarButton);
     color: var(--colorNavBarButton);
 }

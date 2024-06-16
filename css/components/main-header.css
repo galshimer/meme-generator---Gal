@@ -1,9 +1,32 @@
 .main-header {
+    top: 0;
     background-color: var(--colorBase);
     color: var(--colorDefaultText);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
 }
-.nav-bar{
-    display:flex;
+
+.nav-bar {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+.filterForm {
+    text-align: start;
+    background-color: var(--colorDefaultText);
+}
+
+.main-header .main-nav a {
+    min-height: 50px;
+
+}
+
+.main-header .main-nav a:hover {
+    box-shadow: inset 0px -5px 0 var(--colorNavBarButton);
+}
+
+.main-header .main-nav li:last-of-type {
+    border-inline-start: 1px solid RGBA(138, 138, 138, 1);
+}
+

@@ -2,8 +2,8 @@
 
 let gImgs = [
     { id: 1, url: 'img/1.jpg', keywords: ['funny', 'president'] },
-    { id: 2, url: 'img/2.jpg', keywords: ['funny', 'dog', 'baby'] },
-    { id: 3, url: 'img/3.jpg', keywords: ['funny', 'dog'] },
+    { id: 2, url: 'img/2.jpg', keywords: ['funny', 'dog'] },
+    { id: 3, url: 'img/3.jpg', keywords: ['funny', 'dog', 'baby'] },
     { id: 4, url: 'img/4.jpg', keywords: ['funny', 'cat'] },
     { id: 5, url: 'img/5.jpg', keywords: ['funny',] },
     { id: 6, url: 'img/6.jpg', keywords: ['funny',] },
@@ -29,7 +29,7 @@ var gMeme = {
         {
             txt: 'I sometimes eat Falafel',
             size: 20,
-            color: 'red',
+            color: 'white',
             x: 222,
             y:50
         }
@@ -44,7 +44,7 @@ function addLine() {
     var newLine = {         
         txt: 'New line input',         
         size: 30,         
-        color: 'blue',         
+        color: getColor(),         
         x: 222,
         y: gMeme.lines.length === 0 ? 50 : gCanvas.height - 50,
         font: 'Impact',

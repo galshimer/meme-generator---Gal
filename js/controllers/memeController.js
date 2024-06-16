@@ -135,8 +135,8 @@ function onChangeFontFamily(font) {
 
 function moveLine(dir) {
     const line = gMeme.lines[gMeme.selectedLineIdx]
-    if (dir === 'up') line.y -= 5
-    if (dir === 'down') line.y += 5
+    if (dir === 1) line.y -= 5
+    else line.y += 5
     renderMeme()
 }
 
@@ -145,4 +145,4 @@ function onDeleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     gMeme.selectedLineIdx = (gMeme.selectedLineIdx - 1 + gMeme.lines.length) % gMeme.lines.length
     renderMeme()
-    }
+}

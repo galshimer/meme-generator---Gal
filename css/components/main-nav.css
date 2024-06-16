@@ -1,9 +1,16 @@
-.main-nav button{
-display: grid;
-font-weight:400;
+.main-nav-container {
+    display: flex;
+    transition: 1s;
 }
 
-.main-nav button:hover{
-    box-shadow: inset 0px -6px 0px 0px var(--colorNavBarButton);
+.main-nav a{
+display: grid;
+font-weight:400;
+padding: 10px;
+color: var(--colorDefaultText);
+}
+
+.main-nav a:hover{
+    box-shadow: inset 0px -5px 0px 0px var(--colorNavBarButton);
     color: var(--colorNavBarButton);
 }

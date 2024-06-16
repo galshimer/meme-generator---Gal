@@ -4,10 +4,11 @@
 
 body {
     text-align: center;
+    margin: 0;
 }
 
 canvas {
-    border: 1px solid black;
+    border: 1px solid var(--colorBrown);
 }
 
 .btn {
@@ -15,7 +16,7 @@ canvas {
     border: 0;
     cursor: pointer;
     font-weight: 600;
-    color: rgb(77, 78, 87);
+    color: var(--colorBrown);
     font-size: 14px;
     height: 38px;
     padding: 8px 24px;
@@ -30,4 +31,13 @@ canvas {
 }
 .none{
     display: none;
+}
+.editor{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.fa-square-facebook{
+    font-size: 30px;
+    color:var(--colorBrown) ;
 }

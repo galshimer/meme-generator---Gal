@@ -12,35 +12,80 @@
 <body class="main-layout" onload="onInit()">
     <header class="main-header">
         <div class="nav-bar">
-            <div class="logo">Gal's meme generator</div>
-            <nav class="main-nav">
-                <button class="btn">Gallery</button>
-                <button class="btn">About</button>
+            <div class="logo"><img src="logo.png"></div>
+            <nav class="main-nav-container">
+                <ul class="main-nav flex clean-list">
+                    <li><a href='#'>Gallery</a></li>
+                    <li><a href='#'>About</a></li>
+                </ul>
             </nav>
+        </div>
+        <!-- <button class="btn-toggle-menu" onclick="toggleMenu()">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+        </button> -->
+        <div class="filterForm">
+            <form id="filterForm">
+                <label for="subjects">search:</label>
+                <input list="subjects" name="subjects" placeholder="Enter search keyword 🔍">
+                <datalist id="subjects">
+                    <option value="funny">
+                    <option value="president">
+                    <option value="baby">
+                    <option value="cat">
+                    <option value="dog">
+                </datalist>
+                <input type="submit" style="display:none;">
+            </form>
         </div>
     </header>
     <div>
         <div class="editor none">
-            <canvas width="450" height="450" style="outline: 1px solid green" onclick="onCanvasClick(event)"></canvas>
-            <input class="input-text" type="text" oninput="onEditText(value)" id="memeText"
-                placeholder="Enter text for meme">
-            <input type="color" id="color" name="color" value="#ffffff" />
-            <button class="btn" onclick="OnAddText()">Add text</button>
-            <button class="btn" onclick="onSwitchLine()"> Switch line</button>
-            <a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download your photo</a>
-            <button class="btn" onclick="onChangeFontSize(1)"><i class="fa-solid fa-font"></i>+</button>
-            <button class="btn" onclick="onChangeFontSize(-1)"><i class="fa-solid fa-font"></i>-</button>
-            <select onchange="onChangeFontFamily(this.value)">
-                <option value="Impact">Impact</option>
-                <option value="Arial">Arial</option>
-            </select>
-            <button class="btn" onclick="onChangeTextAlign('right')"><i class="fa-solid fa-align-left"></i></button>
-            <button class="btn" onclick="onChangeTextAlign('center')"><i class="fa-solid fa-align-center"></i></button>
-            <button class="btn" onclick="onChangeTextAlign('left')"><i class="fa-solid fa-align-right"></i></button>
-            <button class="btn" onclick="moveLine('up')"><i class="fa-solid fa-arrow-up"></i></button>
-            <button class="btn" onclick="moveLine('down')"><i class="fa-solid fa-arrow-down"></i></button>
-            <button class="btn" onclick="onDeleteLine()"><i class="fa-solid fa-trash"></i></button>
-
+            <div>
+                <canvas width="450" height="450"
+                    onclick="onCanvasClick(event)"></canvas>
+            </div>
+            <div>
+                <div>
+                    <input class="input-text" type="text" oninput="onEditText(value)" id="memeText"
+                        placeholder="Enter text for meme">
+                </div>
+                <div>
+                    <input type="color" id="color" name="color" value="#ffffff" />
+                    <button class="btn" onclick="OnAddText()">Add text</button>
+                    <button class="btn" onclick="onSwitchLine()"> Switch line</button>
+                </div>
+                <div>
+                    <a href="#" class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download your photo</a>
+                </div>
+                <div>
+                    <button class="btn" onclick="onChangeFontSize(1)"><i class="fa-solid fa-font"></i>+</button>
+                    <button class="btn" onclick="onChangeFontSize(-1)"><i class="fa-solid fa-font"></i>-</button>
+                    <select onchange="onChangeFontFamily(this.value)">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="btn" onclick="onChangeTextAlign('right')"><i
+                            class="fa-solid fa-align-left"></i></button>
+                    <button class="btn" onclick="onChangeTextAlign('center')"><i
+                            class="fa-solid fa-align-center"></i></button>
+                    <button class="btn" onclick="onChangeTextAlign('left')"><i
+                            class="fa-solid fa-align-right"></i></button>
+                </div>
+                <div>
+                    <button class="btn" onclick="moveLine(1)"><i class="fa-solid fa-arrow-up"></i></button>
+                    <button class="btn" onclick="moveLine(-1)"><i class="fa-solid fa-arrow-down"></i></button>
+                    <button class="btn" onclick="onDeleteLine()"><i class="fa-solid fa-trash"></i></button>
+                </div>
+                <button onclick="onUploadImg()">
+                    <i class="fa-brands fa-square-facebook"></i>
+                </button>
+            </div>
         </div>
 
         <div class="gallery-container">

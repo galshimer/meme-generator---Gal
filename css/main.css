@@ -1,4 +1,4 @@
-/* SETUP */
+/* SETUP.. */
 /* @import './setup/vars.css'; */
 /* @import url(./setup/typography.css);  */
 :root{
@@ -7,7 +7,7 @@
     --colorBase:RGBA(255, 127, 0, 1);
     --colorNavBarButton: #040A2C;
     --colorOrange:RGBA(255, 127, 0, 1);
-    --colorBrown:RGB(98, 0, 0);
+    --colorBrown:RGB(98, 0, 0); 
 }
 /* BASICS */
 @import './basics/base.css';

@@ -3,19 +3,19 @@
 /* @import url(./setup/typography.css);  */
 
 /* BASICS */
-@import url(basics/base.css);
-@import url(basics/helpers.css);
-@import url(basics/layouts.css);
+@import './basics/base.css';
+@import './basics/helpers.css';
+@import './basics/layouts.css';
 
-/* COMPONENTS  */
-@import url(components/main-header.css);
-@import url(components/logo.css);
-@import url(components/main-nav.css);
-@import url(components/gallery.css);
-@import url(components/main-footer.css);
+/* ./COMPONENTS  */
+@import './components/main-header.css';
+@import './components/logo.css';
+@import './components/main-nav.css';
+@import './components/gallery.css';
+@import './components/main-footer.css';
 
-/* @import url(./components/newsletter.css);
-@import url(./components/main-screen.css); */
+/* @import ././components/newsletter.css
+@import ././components/main-screen.css); 
 
 /* MQ  */
-@import url(mq.css);
+@import './mq.css';
